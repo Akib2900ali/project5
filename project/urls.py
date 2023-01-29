@@ -21,5 +21,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.aboutUs),
     path('userform',views.userform),
+    path('submitform/',views.submitform,name="submitform"),
 ]
 

@@ -1,3 +1,4 @@
+from django.http import HttpResponse,HttpResponseRedirect
 from django.shortcuts import render
 
 def aboutUs(request):
@@ -6,16 +7,25 @@ def aboutUs(request):
 def userform(request):
     finalans=0
     try:
-        
-      n1=int(request.GET['num1'])
-      n2=int(request.GET['num2'])
+     if request.method=="post":  
+      n1=int(request.post['num1'])
+      n2=int(request.post['num2'])
       print(n1+n2);
       finalans=n1+n2
+      data={
+           'n1':n1,
+           'n2':n2,
+           'output':finalans
+      }
+      
+      return HttpResponseRedirect('/aboutUs/')
+
     except:
          pass  
     return render(request,'userform.html',{'output':finalans})    
 
-
+def submitform(request):
+     return HttpResponse(request)
 
 
 
