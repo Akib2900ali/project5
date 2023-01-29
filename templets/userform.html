@@ -10,7 +10,7 @@
     <h1>USER FORM</h1>
  <div class='row'>
     <div class='col-12'>
-        <form method ="post">
+        <form method ="post" action= "{% url 'submitform' %}">
         {% csrf_token %}
            <div>
                <label for="">value1</label>
